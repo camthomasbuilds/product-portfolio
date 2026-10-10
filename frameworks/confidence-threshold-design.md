@@ -10,7 +10,7 @@ Medium confidence →  Route to review queue
 Low confidence   →  Flag for expert review or reject
 ```
 
-This isn't a novel idea, but the implementation details — where you set thresholds, how you adjust them, and what happens at the boundaries — make the difference between a system that works and one that fails silently.
+This isn't a novel idea, but the implementation details (where you set thresholds, how you adjust them, and what happens ) make the difference between a system that works and one that fails silently.
 
 ## Design Principles
 
@@ -25,7 +25,7 @@ As PM, I own the threshold decision. I set it based on the business case, not th
 
 ### 2. Thresholds must be adjustable without code deploys
 
-If changing a threshold requires a code change, PR, review, and deploy — it won't get changed. Thresholds should be:
+If changing a threshold requires a code change, PR, review, and deploy, it won't get changed. Thresholds should be:
 - Configurable via admin UI or environment variable
 - Changeable by product/operations teams, not just engineers
 - Audited (who changed it, when, and what was the previous value)
@@ -43,11 +43,11 @@ When you raise a threshold:
 
 ### 4. Monitor the boundaries, not just the averages
 
-The most important metric isn't "what % of items are automated" — it's "what's the error rate among automated items." Specifically:
+The most important metric isn't "what % of items are automated": it's "what's the error rate among automated items." Specifically:
 
-- **Automation error rate** — Of items that passed the threshold and were automated, how many were wrong? (Sampled via periodic human audit)
-- **Review override rate** — Of items sent to review, how often does the reviewer agree with the model's prediction? (If it's >95%, your threshold is too conservative)
-- **Boundary accuracy** — Model performance specifically for items near the threshold (within 5% confidence). This is where errors concentrate.
+- **Automation error rate**: Of items that passed the threshold and were automated, how many were wrong? (Sampled via periodic human audit)
+- **Review override rate**: Of items sent to review, how often does the reviewer agree with the model's prediction? (If it's >95%, your threshold is too conservative)
+- **Boundary accuracy**: Model performance specifically for items near the threshold (within 5% confidence). This is where errors concentrate.
 
 ## Implementation Checklist
 
@@ -68,7 +68,7 @@ The most important metric isn't "what % of items are automated" — it's "what's
 ### For operations/review teams
 - [ ] Clear explanation of why an item was routed to review (confidence score visible)
 - [ ] Ability to see the model's prediction alongside the review task
-- [ ] Structured correction format (not just "reject" — capture the correct answer)
+- [ ] Structured correction format (not just "reject": capture the correct answer)
 - [ ] Feedback on threshold-change impact ("if we lower by 5%, queue shrinks by N items/day")
 
 ## Common Traps
@@ -82,11 +82,11 @@ The model improves over time (retraining from corrections). If the threshold nev
 *Fix:* Scheduled threshold reviews (monthly or quarterly) with data on error rates and queue volumes.
 
 **Trap: Confidence ≠ correctness**
-A model can be confidently wrong — especially on out-of-distribution inputs. High confidence doesn't guarantee correctness.
+A model can be confidently wrong: especially on out-of-distribution inputs. High confidence doesn't guarantee correctness.
 *Fix:* Periodic random audits of automated items (not just review-queue items). Sample 1–5% of automated decisions for human verification.
 
 ## When This Pattern Doesn't Apply
 
-- **All-or-nothing decisions** — If there's no meaningful "medium confidence" zone (e.g., safety-critical binary decisions), thresholds may not help. You need a different pattern (e.g., dual-model agreement).
-- **Low-volume tasks** — If the total volume is small enough for a human to review everything, the complexity of threshold management isn't worth it. Just review everything.
-- **Rapidly changing domains** — If the underlying data distribution shifts faster than you can retrain, confidence scores become unreliable. Focus on drift detection instead.
+- **All-or-nothing decisions**: If there's no meaningful "medium confidence" zone (e.g., safety-critical binary decisions), thresholds may not help. You need a different pattern (e.g., dual-model agreement).
+- **Low-volume tasks**: If the total volume is small enough for a human to review everything, the complexity of threshold management isn't worth it. Just review everything.
+- **Rapidly changing domains**: If the underlying data distribution shifts faster than you can retrain, confidence scores become unreliable. Focus on drift detection instead.

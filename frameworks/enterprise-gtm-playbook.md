@@ -2,7 +2,7 @@
 
 ## The Core Problem
 
-Building a great internal product is half the job. Getting people to actually use it — when they've been doing things their way for years — is the other half. Enterprise GTM requires the same rigor as external product launches, but with different levers.
+Building a great internal product is half the job. Getting people to actually use it when they've been doing things their way for years, is the other half. Enterprise GTM requires the same rigor as external product launches, but with different levers.
 
 This playbook is based on taking GenE from 30 to 300+ daily active users in 18 months without a usage mandate, and shipping DocIQ, Nuclear, and Fossil products into organizations that were skeptical of AI.
 
@@ -16,7 +16,7 @@ Don't start with the org chart. Start with the person whose job is hardest.
 
 **What to do:**
 - Identify the workflow that causes the most pain (hours wasted, errors made, frustration expressed)
-- Find the person who suffers most from it — this is your pain champion, not your executive sponsor
+- Find the person who suffers most from it. This is your pain champion, not your executive sponsor
 - Spend time observing their actual workflow (not what they describe in a meeting)
 - Quantify their pain in hours/week or dollars/month
 
@@ -122,4 +122,4 @@ Internal enterprise GTM is harder than external in one critical way: **your user
 
 That means you have to earn adoption through value, not through procurement. The moment you rely on a mandate instead of demonstrated value, you've lost the long game. Users will comply on the surface and work around you underneath.
 
-The GenE story — 30 to 300+ DAU without a mandate — happened because the product solved a real pain point (month-end close) better than the alternative (spreadsheets). Every other adoption win flowed from that foundation.
+The GenE story: 30 to 300+ DAU without a mandate: happened because the product solved a real pain point (month-end close) better than the alternative (spreadsheets). Every other adoption win flowed from that foundation.

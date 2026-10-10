@@ -2,7 +2,7 @@
 
 ## The Investment Thesis
 
-Every generation asset — solar, wind, gas, nuclear — produces data continuously. That data is currently trapped in fragmented systems, processed manually, and acted on reactively. The thesis: **structure that data correctly, and it becomes a decision-making system that replaces millions of dollars in manual work, prevents millions more in unplanned outages, and creates an entirely new class of operational intelligence.**
+Every generation asset: solar, wind, gas, nuclear, produces data continuously. That data is currently trapped in fragmented systems, processed manually, and acted on reactively. The thesis: **structure that data correctly, and it becomes a decision-making system that replaces millions of dollars in manual work, prevents millions more in unplanned outages, and creates an entirely new class of operational intelligence.**
 
 I'm building that system across four product lines. Not as one monolithic platform, but as a portfolio of specialized products that share architecture patterns, feed each other data, and compound in value.
 
@@ -42,7 +42,7 @@ I'm building that system across four product lines. Not as one monolithic platfo
 
 | From | To | What Flows |
 |------|-----|-----------|
-| GenE (Itasca telemetry) | Nuclear Nexus | Shared telemetry backbone — built once, serves both |
+| GenE (Itasca telemetry) | Nuclear Nexus | Shared telemetry backbone: built once, serves both |
 | DocIQ | Conduit asset pages | Classified documents linked to equipment for operator access |
 | Nuclear/Fossil models | Conduit alerts | Predictive alerts surface in unified triage workflow |
 | GenE classifications | Financial systems | Loss categories → cost centers → revenue recognition |
@@ -69,7 +69,7 @@ Every initiative across the portfolio competes for allocation using the same fra
 
 | Product | Active Charters | Combined Value | Profit Index Range |
 |---------|----------------|----------------|--------------------|
-| GenE | 4 workstreams | $55M+ NPV | 25.8 – 81.2 |
+| GenE | 4 workstreams | $55M+ NPV | 25.8 - 81.2 |
 | DocIQ | 6 EPICs (Phase 2) | $3.8M+ net annual | 6.6x multiplier |
 | Nuclear | 5 capability tracks (N1-N5) | $20M+ program | Outage prevention ($3M/day) |
 | Fossil | 3 workstreams | $20M+ program | Integrated with Total Value |
@@ -78,12 +78,12 @@ Every initiative across the portfolio competes for allocation using the same fra
 
 The decisions to not build are as important as the decisions to build:
 
-- **Did not build economic/non-economic curtailment analysis into GenE** — belongs in BI tools, not the classification engine. Keeping GenE focused on accuracy preserved the $8.5M NPV timeline.
-- **Did not pursue deep learning for fossil failure prediction** — Weibull is interpretable, works with limited data, and is trusted by reliability engineers. Technical sophistication wasn't the bottleneck; stakeholder trust was.
-- **Did not ship nuclear features in Q3 2026** — advocated for stabilization quarter instead. PI integration was 60-70% complete, ownership was unclear. Foundation work first.
-- **Deferred WIT reclassification to DocIQ Phase 3** — the accuracy improvement wasn't worth the Phase 2 timeline risk. Shipped what mattered, deferred what could wait.
-- **Did not build a general-purpose document classifier** — split into three specialized agents (drawings, records, manuals). Each outperformed the general model by 15%+.
-- **Did not auto-categorize DTE events** — human-in-the-loop required for financial close integrity. The cost of an automated wrong answer exceeds the cost of a human review step.
+- **Did not build economic/non-economic curtailment analysis into GenE**: belongs in BI tools, not the classification engine. Keeping GenE focused on accuracy preserved the $8.5M NPV timeline.
+- **Did not pursue deep learning for fossil failure prediction**: Weibull is interpretable, works with limited data, and is trusted by reliability engineers. Technical sophistication wasn't the bottleneck; stakeholder trust was.
+- **Did not ship nuclear features in Q3 2026**: advocated for stabilization quarter instead. PI integration was 60-70% complete, ownership was unclear. Foundation work first.
+- **Deferred WIT reclassification to DocIQ Phase 3**: the accuracy improvement wasn't worth the Phase 2 timeline risk. Shipped what mattered, deferred what could wait.
+- **Did not build a general-purpose document classifier**: split into three specialized agents (drawings, records, manuals). Each outperformed the general model by 15%+.
+- **Did not auto-categorize DTE events**: human-in-the-loop required for financial close integrity. The cost of an automated wrong answer exceeds the cost of a human review step.
 
 ---
 
@@ -112,7 +112,7 @@ Applied in Nuclear (alert → triage → work order) and DocIQ (classify → rev
 Every technical finding connects to a dollar value. GenE losses map to financial cost centers. Fossil failures connect to Total Value. Nuclear alerts connect to outage cost. This is what turns "interesting data" into "capital allocation decisions."
 
 ### 6. Performance is a Product Feature
-If the system is too slow, users go back to spreadsheets (GenE Python backend) or manual processes. The Rust migration wasn't optimization — it was a product decision that changed adoption patterns. Sub-300ms response times enabled usage patterns that 3-5s response times made impossible.
+If the system is too slow, users go back to spreadsheets (GenE Python backend) or manual processes. The Rust migration wasn't optimization. It was a product decision that changed adoption patterns. Sub-300ms response times enabled usage patterns that 3-5s response times made impossible.
 
 ---
 
@@ -151,9 +151,9 @@ This portfolio demonstrates Principal/Director-level product leadership:
 | Dimension | Evidence |
 |-----------|---------|
 | **Portfolio scope** | 4 independent products, different teams, different domains, unified thesis |
-| **Business model innovation** | SaaS commercialization — creating a new revenue line, not just shipping features |
+| **Business model innovation** | SaaS commercialization, creating a new revenue line, not just shipping features |
 | **Investment framework** | NPV-driven prioritization across $95M+ in combined portfolio value |
 | **Architecture influence** | Patterns I designed (Rust/TSDB, multi-agent AI, confidence gating) adopted by 3+ adjacent teams |
 | **Org-level impact** | Changed how the organization evaluates AI investments, plans quarters, and measures product value |
-| **Regulated complexity** | NRC (nuclear), SOX/NERC (financial), engineering compliance — simultaneously |
+| **Regulated complexity** | NRC (nuclear), SOX/NERC (financial), engineering compliance, simultaneously |
 | **Company-scale metrics** | $2.4B revenue influenced, $90M+ recovered, 700+ sites, 15GW |

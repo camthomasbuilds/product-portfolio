@@ -2,7 +2,7 @@
 
 ## Overview
 
-These are reusable technical architecture patterns I've applied across four AI/ML product lines in power generation. Each pattern emerged from shipping real products in high-stakes, regulated environments — not from theory. They prioritize trust, explainability, and graceful degradation over novelty.
+These are reusable technical architecture patterns I've applied across four AI/ML product lines in power generation. Each pattern emerged from shipping real products in high-stakes, regulated environments, not from theory. They prioritize trust, explainability, and graceful degradation over novelty.
 
 ---
 
@@ -19,7 +19,7 @@ These are reusable technical architecture patterns I've applied across four AI/M
 - Specialized models outperform general ones by 10-20% in every case I've tested
 - Error analysis is actionable ("the drawings agent struggles with I&C loop diagrams") vs. vague ("the model is 80% accurate")
 - You can improve one agent without risking regressions in others
-- Resource allocation is precise — invest in the worst-performing agent, not the whole system
+- Resource allocation is precise: invest in the worst-performing agent, not the whole system
 
 **When NOT to use it:**
 - Volume per category is too low to train specialized models
@@ -50,7 +50,7 @@ Prediction + Confidence Score
 **Critical implementation details:**
 - Thresholds are **product decisions**, not model decisions. The PM owns where to draw the line.
 - Thresholds must be adjustable **without code deploys** (config, admin UI, or environment variable).
-- Monitor **boundary accuracy** — items near the threshold are where errors concentrate.
+- Monitor **boundary accuracy**: items near the threshold are where errors concentrate.
 - Track **automation error rate** (sampled human audit of auto-executed items) and **review override rate** (how often reviewers agree with the model).
 
 **The tradeoff:** Conservative thresholds mean more human review (higher cost, slower throughput). Aggressive thresholds mean more automation errors (trust erosion, compliance risk). Start conservative. Tighten as you build evidence.
@@ -76,7 +76,7 @@ Prediction + Confidence Score
 **Why it works in regulated/high-stakes environments:**
 - Operators see the system prove itself before they're asked to trust it
 - Each phase has measurable success criteria, not subjective buy-in
-- Failure at any phase is contained — you roll back one phase, not the whole system
+- Failure at any phase is contained. You roll back one phase, not the whole system
 - Regulators and auditors can trace the trust-building evidence
 
 **The tradeoff:** Slower time to full automation. But in nuclear and financial reporting, rushing to Phase 4 and having a false alarm erode operator trust costs you 6+ months of re-earned credibility. The phased approach is faster in the long run.
@@ -85,7 +85,7 @@ Prediction + Confidence Score
 
 ## Pattern 4: Financial Anchoring
 
-**The pattern:** Every technical finding, alert, or classification connects to a dollar value. Don't surface "anomaly detected" — surface "this anomaly represents $X in risk."
+**The pattern:** Every technical finding, alert, or classification connects to a dollar value. Don't surface "anomaly detected": surface "this anomaly represents $X in risk."
 
 **Where I applied it:**
 - **GenE:** Loss classifications map to financial cost centers. "This site lost 450 MWh to subcurve underperformance" becomes "$67K in recoverable generation this month."
@@ -96,7 +96,7 @@ Prediction + Confidence Score
 **Why it works:**
 - Converts technical findings into capital allocation decisions
 - Enables risk-weighted prioritization (which alerts to act on first)
-- Makes the business case self-evident — users see the dollar value of the system every time they use it
+- Makes the business case self-evident: users see the dollar value of the system every time they use it
 - Aligns technical teams and business stakeholders on the same metric
 
 **The tradeoff:** Requires maintaining a financial model alongside the technical system. The dollar values are estimates, not precise calculations. Be transparent about confidence ranges.
@@ -122,7 +122,7 @@ Prediction + Confidence Score
 - Choose languages/frameworks based on production query patterns, not developer productivity alone
 - Pre-compute aggregations at write time rather than calculating at read time
 - Profile real user queries, not synthetic benchmarks
-- Monitor P95 latency, not averages — the worst experiences drive abandonment
+- Monitor P95 latency, not averages: the worst experiences drive abandonment
 
 **The tradeoff:** Rust is harder to hire for and slower to develop in than Python. TimescaleDB continuous aggregates increase storage costs and write complexity. These are worth it when the product's adoption depends on interactive performance.
 
@@ -130,7 +130,7 @@ Prediction + Confidence Score
 
 ## Pattern 6: Graceful Degradation
 
-**The pattern:** When any component fails — model confidence drops, data source goes offline, API times out — the system defaults to a safe, useful state rather than breaking or producing bad output.
+**The pattern:** When any component fails: model confidence drops, data source goes offline, API times out: the system defaults to a safe, useful state rather than breaking or producing bad output.
 
 **Degradation hierarchy:**
 1. **Full automation** (everything working) → system operates normally
@@ -140,10 +140,10 @@ Prediction + Confidence Score
 
 **Where I applied it:**
 - **DocIQ:** When classifier confidence drops, documents queue for review rather than being misclassified
-- **GenE:** When GenE classification fails for an interval, it's marked Invalid and implied power fills the gap — visible to analysts, not hidden
+- **GenE:** When GenE classification fails for an interval, it's marked Invalid and implied power fills the gap: visible to analysts, not hidden
 - **Nuclear:** When data historian connectivity is inconsistent, Conduit shows last-known data with freshness timestamps rather than hiding the gap
 
-**Why it matters in industrial settings:** Power plant operators make safety and financial decisions based on these systems. Silent failure — where the system looks normal but the data is wrong — is the worst possible outcome. Visible degradation is always safer than hidden failure.
+**Why it matters in industrial settings:** Power plant operators make safety and financial decisions based on these systems. Silent failure, where the system looks normal but the data is wrong, is the worst possible outcome. Visible degradation is always safer than hidden failure.
 
 ---
 

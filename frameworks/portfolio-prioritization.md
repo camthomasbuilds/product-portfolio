@@ -2,7 +2,7 @@
 
 ## The Problem
 
-When you own one product, prioritization is hard. When you own four independent products — each with different stakeholders, different value models, and different risk profiles — prioritization becomes a portfolio management problem.
+When you own one product, prioritization is hard. When you own four independent products, each with different stakeholders, different value models, and different risk profiles, prioritization becomes a portfolio management problem.
 
 The question isn't "should we build Feature X?" It's "should we invest our next dollar of engineering capacity in Product A's Feature X, Product B's Feature Y, or Product C's infrastructure work that unblocks three downstream initiatives?"
 
@@ -14,7 +14,7 @@ This framework is how I make those decisions.
 
 ### Step 1: Quantify Every Initiative
 
-Every initiative — regardless of which product it belongs to — gets the same evaluation:
+Every initiative: regardless of which product it belongs to: gets the same evaluation:
 
 | Field | What It Answers |
 |-------|----------------|
@@ -74,21 +74,21 @@ Stack-rank all initiatives across the portfolio by Adjusted Value. Draw a line a
 | DocIQ Phase 2 Production | DocIQ | $3.8M/yr | 1.5x (platform) | 0.8 | 14.2 | **Fund** |
 | Fossil Weibull Expansion | Fossil | Part of $20M | 1.0x | 0.7 | 11.8 | **Fund** |
 | GCP Full Migration | GenE | $1.7M | 1.5x (platform) | 0.7 | 6.1 | **Fund (phased)** |
-| Economic Curtailment Split | GenE | Low | 1.0x | 0.9 | 2.1 | **Defer** — BI tool scope |
-| General-purpose doc classifier | DocIQ | Low | 1.0x | 0.8 | 1.4 | **Kill** — specialized agents won |
+| Economic Curtailment Split | GenE | Low | 1.0x | 0.9 | 2.1 | **Defer**: BI tool scope |
+| General-purpose doc classifier | DocIQ | Low | 1.0x | 0.8 | 1.4 | **Kill**: specialized agents won |
 
 ---
 
 ## How I Communicate Prioritization Decisions
 
 ### To Engineering Teams
-"Here's what we're building this quarter and why. Here's what we're not building and why. The ranking is based on [specific values]. If you think I'm wrong about an assumption, challenge me — I'd rather be corrected now than discover it at sprint review."
+"Here's what we're building this quarter and why. Here's what we're not building and why. The ranking is based on [specific values]. If you think I'm wrong about an assumption, challenge me: I'd rather be corrected now than discover it at sprint review."
 
 ### To Stakeholders Whose Initiative Got Deferred
-"Your initiative has a [specific value]. It's ranked [Nth] in the portfolio. The initiatives ahead of it have higher adjusted value because [specific reasons]. Here's what would need to change for it to move up: [data readiness, dependency resolution, etc.]. I'm not saying no — I'm saying not yet, and here's the path to yes."
+"Your initiative has a [specific value]. It's ranked [Nth] in the portfolio. The initiatives ahead of it have higher adjusted value because [specific reasons]. Here's what would need to change for it to move up: [data readiness, dependency resolution, etc.]. I'm not saying no: I'm saying not yet, and here's the path to yes."
 
 ### To Leadership
-"The portfolio is allocating $X in engineering capacity across [N] initiatives with a combined expected value of $Y. Our top initiative has an 81.2 profit index — $81 in value for every $1 invested. The lowest-ranked funded initiative has a [Z] profit index. Here's the 'below the line' list and what we'd need to fund them."
+"The portfolio is allocating $X in engineering capacity across [N] initiatives with a combined expected value of $Y. Our top initiative has an 81.2 profit index: $81 in value for every $1 invested. The lowest-ranked funded initiative has a [Z] profit index. Here's the 'below the line' list and what we'd need to fund them."
 
 ---
 
@@ -106,6 +106,6 @@ Stack-rank all initiatives across the portfolio by Adjusted Value. Draw a line a
 
 ## When This Framework Breaks
 
-- **Crisis response** — When a production system is down or a regulatory deadline is imminent, skip the framework and fix the problem. Recalibrate later.
-- **Strategic bets** — Some investments can't be NPV'd (e.g., exploring a new market). Keep a small allocation (10-15%) for strategic bets evaluated on learning value, not financial return.
-- **Team health** — If a team has shipped 3 high-pressure quarters in a row, the right investment might be a lower-pressure initiative that prevents burnout. The framework doesn't capture human factors.
+- **Crisis response**: When a production system is down or a regulatory deadline is imminent, skip the framework and fix the problem. Recalibrate later.
+- **Strategic bets**: Some investments can't be NPV'd (e.g., exploring a new market). Keep a small allocation (10-15%) for strategic bets evaluated on learning value, not financial return.
+- **Team health**: If a team has shipped 3 high-pressure quarters in a row, the right investment might be a lower-pressure initiative that prevents burnout. The framework doesn't capture human factors.
